@@ -1,0 +1,115 @@
+{
+  "prompt_template": {
+    "objective": "I need to create a Dev Container configuration that reuses my existing docker-compose.yml for a Python project from scratch.",
+    "project_requirements": {
+      "Name": "GenTales00",
+      "language": "Python 3.11",
+      "package_manager": "uv (https://github.com/astral-sh/uv)",
+      "dependencies": "I DON'T HAVE requirements.txt - need to generate it with basic dependencies for [SPECIFY: FastAPI]",
+      "database": "none",
+      "other_services": "none"
+    },
+    "files_to_generate": [
+      {
+        "file": "requirements.txt",
+        "description": "Initial file with basic dependencies for [FastAPI API]"
+      },
+      {
+        "file": "Dockerfile",
+        "description": "Optimized for Python with uv"
+      },
+      {
+        "file": "docker-compose.yml",
+        "content": [
+          "Main service 'app' with bidirectional volumes",
+          "command: sleep infinity to work with dev container"
+        ]
+      },
+      {
+        "file": ".devcontainer/devcontainer.json",
+        "configuration": [
+          "Use the docker-compose.yml",
+          "Create virtual environment with uv",
+          "Install dependencies with uv in postCreateCommand",
+          "Include useful Python extensions for VS Code",
+          "Forward necessary ports"
+        ]
+      }
+    ],
+    "technical_specifications": {
+      "working_directory": "/workspace (both in Dockerfile and volumes)",
+      "user": "Create non-root user named 'vscode' with UID 1000",
+      "uv_installation": "Must be installed in the Dockerfile",
+      "virtual_environment": "Create venv with uv in postCreateCommand: 'uv venv && source .venv/bin/activate && uv pip install -r requirements.txt'",
+      "uv_cache": "Use named volume to cache uv packages",
+      "initial_requirements": "Include basic dependencies according to project type",
+      "environment_variables": "[SPECIFY if you need any, e.g.: DATABASE_URL, DEBUG=True, etc.]"
+    },
+    "expected_structure": {
+      "description": "Project directory structure",
+      "tree": [
+        "[Name]/",
+        "├── Dockerfile",
+        "├── docker-compose.yml",
+        "├── requirements.txt (TO GENERATE)",
+        "├── .devcontainer/",
+        "│   └── devcontainer.json",
+        "├── .venv/ (will be created automatically)",
+        "└── src/",
+        "    └── [code files]"
+      ]
+    },
+    "vscode_extensions": {
+      "mandatory": [
+        "Python (ms-python.python)",
+        "Pylance (ms-python.vscode-pylance)"
+      ],
+      "additional": [
+        "ms-python.pylint",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        "ms-python.debugpy",
+        "ms-toolsai.jupyter",
+        "ms-vscode.test-adapter-converter",
+        "littlefoxteam.vscode-python-test-adapter",
+        "redhat.vscode-yaml",
+        "ms-vscode.vscode-json",
+        "bradlc.vscode-tailwindcss",
+        "formulahendry.auto-rename-tag",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-typescript-next",
+        "ms-vscode.makefile-tools",
+        "ms-azuretools.vscode-docker",
+        "github.copilot",
+        "github.copilot-chat",
+        "ms-vscode.live-server",
+        "ms-vsliveshare.vsliveshare"
+      ]
+    },
+    "additional_configurations": [
+      "[The project is a FastAPI API]",
+      "[Do you want automatic formatting on save?: yes with black]",
+      "[Do you need debugger configured?: yes]",
+      "[Testing with pytest?: Testing with pytest (minimum endpoint tests)]"
+    ],
+    "suggested_dependencies": {
+      "instruction": "Based on the project type, include in requirements.txt:",
+      "examples": [
+        "fastapi==0.115.0",
+        "uvicorn[standard]==0.30.6",
+        "httpx==0.27.2",
+        "pytest==8.3.3",
+        "jsonschema==4.23.0",
+        "pydantic-settings==2.5.2"
+      ]
+    },
+    "usage_instructions": {
+      "after_setup": [
+        "To add new dependencies use: uv pip install <package>",
+        "To update requirements.txt: uv pip freeze > requirements.txt",
+        "The virtual environment .venv/ is in .gitignore automatically"
+      ]
+    },
+    "final_instruction": "Please generate the 4 complete files (requirements.txt, Dockerfile, docker-compose.yml and devcontainer.json) ready to use, with explanatory comments in English."
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "GenTales00",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "settings": {
+    "python.pythonPath": "/workspace/.venv/bin/python"
+  },
+  "extensions": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-python.pylint",
+    "ms-python.black-formatter",
+    "ms-python.isort",
+    "ms-python.debugpy",
+    "ms-toolsai.jupyter",
+    "ms-vscode.test-adapter-converter",
+    "littlefoxteam.vscode-python-test-adapter",
+    "redhat.vscode-yaml",
+    "ms-vscode.vscode-json",
+    "bradlc.vscode-tailwindcss",
+    "formulahendry.auto-rename-tag",
+    "esbenp.prettier-vscode",
+    "ms-vscode.vscode-typescript-next",
+    "ms-vscode.makefile-tools",
+    "ms-azuretools.vscode-docker",
+    "github.copilot",
+    "github.copilot-chat",
+    "ms-vscode.live-server",
+    "ms-vsliveshare.vsliveshare"
+  ],
+  "postCreateCommand": "uv venv && source .venv/bin/activate && uv pip install -r requirements.txt",
+  "remoteUser": "vscode",
+  "forwardPorts": [8000]
+}
