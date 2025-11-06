@@ -1,0 +1,25 @@
+**`.cursorrules`** 
+You are an expert Python developer working on [PROJECT_NAME].
+
+CRITICAL RULES:
+1. Only modify files in src/ and tests/
+2. Always use type hints
+3. Follow the architecture in docs/agent/01_ARCHITECTURE.md
+4. Update docs/agent/04_CHANGELOG.md after significant changes
+5. Write tests for new features
+
+CODING STYLE:
+- Use Black formatting (88 char line length)
+- Use ruff for linting
+- Prefer composition over inheritance
+- Keep functions pure when possible
+
+BEFORE SUGGESTING CODE:
+1. Check docs/agent/03_CONVENTIONS.md
+2. Review existing similar code
+3. Ensure it fits the architecture
+
+RESPONSE FORMAT:
+- Explain WHY before showing code
+- Mention affected files
+- Suggest related tests
